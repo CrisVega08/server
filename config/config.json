@@ -1,0 +1,9 @@
+{
+    "development": {
+        "MONGODB_URI": "mongodb://almundo:almundo@ds215370.mlab.com:15370/al_mundo",
+        "PORT": 3001
+    },
+    "production": {
+        "MONGODB_URI": "mongodb://almundo:almundo@ds215370.mlab.com:15370/al_mundo"
+    }
+}
