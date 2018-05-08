@@ -24,17 +24,20 @@ module.exports.search = (req, res) => {
     if (req.query.name) query.push({ name: new RegExp(req.query.name, 'i') })
     else query.push({})
 
-    Hotel.find(query[0]).and([
-        { stars: { $in: stars } },
-    ]).then(data => {
-        res.status(200).send(data)
-    }).catch(e => res.status(400).send(e))
+    Hotel.find(query[0])
+        .and([{ $or: [{ stars: { $in: stars } }] }])
+        .then(data => {
+            res.status(200).send(data)
+        }).catch(e => res.status(400).send(e))
 }
 
 module.exports.image = (req, res) => {
     var path = `hotels/${req.params.img}`;
     fs.exists(path, image => {
-        if (!image) path = 'assets/no-img.jpg';
+        if (!image) {
+            path = 'assets/no-img.jpg';
+        }
         res.sendFile(path, { root: './' })
     })
+
 }
