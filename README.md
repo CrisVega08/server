@@ -1,6 +1,6 @@
-# AlMundo
+# Hoteles
 
-Prueba técnica de ALMUNDO servidor
+Hoteles Server
 
 ## 1. Servidor
 
